@@ -150,7 +150,17 @@ public class RegistrationController {
 		 * mav;
 		 */
 	}
+	
+	@RequestMapping(value = "/getSecQuestions")
+	public @ResponseBody List<String>  getSecQuestions() {
 
+		 secquli=regservice.getsecquestions();
+		 sqs=regservice.getQuestions(secquli);
+		System.out.println("after getting questions"+sqs);
+		return sqs;
+		
+	}
+	
 	@RequestMapping(value = "/backlogin")
 	public ModelAndView backlogin(@ModelAttribute("user") UserForm userbean) {
 		ModelAndView mav = new ModelAndView();

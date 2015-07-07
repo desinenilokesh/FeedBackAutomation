@@ -41,36 +41,24 @@
 	});
 	$(function() {
 		$('#startTime').timepicker();
-		
-		
+
 	});
 	$(function() {
 		$('#endTime').timepicker();
 	});
-	
-	
-	
-	
-	
-/* 
-     $("#endTime").change(function () {
-    	 alert('hi');
-         var startTime = document.getElementById("startTime").value;
-        var endTime = document.getElementById("endTime").value;
 
-        if ((Date.parse(endTime) <= Date.parse(startTime))) {
-         alert("End time should be greater than Start time");
-        document.getElementById("startTime").value = "";
-} });
+	/* 
+	 $("#endTime").change(function () {
+	 alert('hi');
+	 var startTime = document.getElementById("startTime").value;
+	 var endTime = document.getElementById("endTime").value;
+
+	 if ((Date.parse(endTime) <= Date.parse(startTime))) {
+	 alert("End time should be greater than Start time");
+	 document.getElementById("startTime").value = "";
+	 } });
 	 */
-	
-	
-	
-	
-	
-	
-	
-	
+
 	function reset() {
 		document.getElementById("startTime").value = "";
 		document.getElementById("endTime").value = "";
@@ -192,110 +180,93 @@
 			x.add(option);
 		}
 	}
-	function checktime()
-	{
-	
-		
+	function checktime() {
+
 		alert('hi');
-		var starttime=document.getElementById("startTime").value;
-		var endtime=document.getElementById("endTime").value;
+		var starttime = document.getElementById("startTime").value;
+		var endtime = document.getElementById("endTime").value;
 		alert(starttime.indexOf("AM"));
-		var startvalue,endvalue;
-		var flag=true;
-		if(starttime.indexOf("AM")>-1)
-			{
-			startvalue=  parseInt(starttime.substring(0,starttime.indexOf(':'))*100 )+ parseInt(starttime.substring(starttime.indexOf(':')+1,starttime.indexOf(':')+3));
-			}
-		else
-			{
-			 startvalue=  parseInt((parseInt(starttime.substring(0,starttime.indexOf(':')))+12)*100)+ parseInt(starttime.substring(starttime.indexOf(':')+1,starttime.indexOf(':')+3));
-			
-			}
-		if(endtime.indexOf("AM")>-1)
-			{
-			endvalue=parseInt(endtime.substring(0,endtime.indexOf(':'))*100 )+ parseInt(endtime.substring(endtime.indexOf(':')+1,endtime.indexOf(':')+3));
-			}
-		else
-			{
-			endvalue=  parseInt((parseInt(endtime.substring(0,endtime.indexOf(':')))+12)*100)+ parseInt(endtime.substring(endtime.indexOf(':')+1,endtime.indexOf(':')+3));
-			
-			}
-		
-		
+		var startvalue, endvalue;
+		var flag = true;
+		if (starttime.indexOf("AM") > -1) {
+			startvalue = parseInt(starttime
+					.substring(0, starttime.indexOf(':')) * 100)
+					+ parseInt(starttime.substring(starttime.indexOf(':') + 1,
+							starttime.indexOf(':') + 3));
+		} else {
+			startvalue = parseInt((parseInt(starttime.substring(0, starttime
+					.indexOf(':'))) + 12) * 100)
+					+ parseInt(starttime.substring(starttime.indexOf(':') + 1,
+							starttime.indexOf(':') + 3));
+
+		}
+		if (endtime.indexOf("AM") > -1) {
+			endvalue = parseInt(endtime.substring(0, endtime.indexOf(':')) * 100)
+					+ parseInt(endtime.substring(endtime.indexOf(':') + 1,
+							endtime.indexOf(':') + 3));
+		} else {
+			endvalue = parseInt((parseInt(endtime.substring(0, endtime
+					.indexOf(':'))) + 12) * 100)
+					+ parseInt(endtime.substring(endtime.indexOf(':') + 1,
+							endtime.indexOf(':') + 3));
+
+		}
+
 		alert(startvalue);
 		alert(endvalue);
-		if(startvalue<900)
-			{
+		if (startvalue < 900) {
 			alert("in starttime<900");
-			document.getElementById("Technology").selectedIndex =0;
-			document.getElementById("topic").selectedIndex =0;
-			document.getElementById("trname").selectedIndex =0;
+			document.getElementById("Technology").selectedIndex = 0;
+			document.getElementById("topic").selectedIndex = 0;
+			document.getElementById("trname").selectedIndex = 0;
 			document.getElementById("topic").disabled = true;
 			document.getElementById("trname").disabled = true;
-			document.getElementById("stimeerror").innerHTML="please select time time after 9.00 A.M";
-			flag=false;
-			}
-		else
-			{
-			document.getElementById("stimeerror").innerHTML="";
-			}
-		 if(endvalue>1800)
-			{
-			 document.getElementById("Technology").selectedIndex =0;
-				document.getElementById("topic").selectedIndex =0;
-				document.getElementById("trname").selectedIndex =0;
-				document.getElementById("topic").disabled = true;
-				document.getElementById("trname").disabled = true;
-			 alert("in endtime>1800");
-			 document.getElementById("Technology").selectedIndex =0;
-			document.getElementById("timeerror").innerHTML="please select time time before 6.00 P.M"
-			flag=false;
-			}
-		 else
-			 {
-			 document.getElementById("timeerror").innerHTML=""
-			 }
-		if(startvalue>900 && endvalue<1800)
-		{
-			if(endvalue-startvalue>300)
-			{
-			document.getElementById("timeerror").innerHTML="Session should not last more than 3 hrs";
-			flag=false;
-			}
-		else
-			{
-			if(endvalue<startvalue)
-			{
-				document.getElementById("Technology").selectedIndex =0;
-				document.getElementById("topic").selectedIndex =0;
-				document.getElementById("trname").selectedIndex =0;
-				document.getElementById("topic").disabled = true;
-				document.getElementById("trname").disabled = true;
-				alert("in end <start");
-			document.getElementById("Technology").selectedIndex =0;
-			alert('please select appropriate Times');
-			document.getElementById("timeerror").innerHTML="please select time time after"+starttime;
-			flag=false;
-			}
-		else
-			{
-			document.getElementById("timeerror").innerHTML="";
-			}
-			}
-			
-			
+			document.getElementById("stimeerror").innerHTML = "please select time time after 9.00 A.M";
+			flag = false;
+		} else {
+			document.getElementById("stimeerror").innerHTML = "";
 		}
-		if(flag)
-			{
-			 document.getElementById("addsessionform").submit();
+		if (endvalue > 1800) {
+			document.getElementById("Technology").selectedIndex = 0;
+			document.getElementById("topic").selectedIndex = 0;
+			document.getElementById("trname").selectedIndex = 0;
+			document.getElementById("topic").disabled = true;
+			document.getElementById("trname").disabled = true;
+			alert("in endtime>1800");
+			document.getElementById("Technology").selectedIndex = 0;
+			document.getElementById("timeerror").innerHTML = "please select time time before 6.00 P.M"
+			flag = false;
+		} else {
+			document.getElementById("timeerror").innerHTML = ""
+		}
+		if (startvalue > 900 && endvalue < 1800) {
+			if (endvalue - startvalue > 300) {
+				document.getElementById("timeerror").innerHTML = "Session should not last more than 3 hrs";
+				flag = false;
+			} else {
+				if (endvalue < startvalue) {
+					document.getElementById("Technology").selectedIndex = 0;
+					document.getElementById("topic").selectedIndex = 0;
+					document.getElementById("trname").selectedIndex = 0;
+					document.getElementById("topic").disabled = true;
+					document.getElementById("trname").disabled = true;
+					alert("in end <start");
+					document.getElementById("Technology").selectedIndex = 0;
+					alert('please select appropriate Times');
+					document.getElementById("timeerror").innerHTML = "please select time time after"
+							+ starttime;
+					flag = false;
+				} else {
+					document.getElementById("timeerror").innerHTML = "";
+				}
 			}
-		
-		
-		
-	}
 
-	
-	
+		}
+		if (flag) {
+			document.getElementById("addsessionform").submit();
+		}
+
+	}
 </script>
 
 
@@ -321,8 +292,8 @@
 
 					<td><label>Date</label></td>
 					<td><form:input path="sdate" id="sdate"
-							placeholder="dd/mm/yyyy" />
-						<form:errors style="color: red;font-style: italic;" path="sdate" /></td>
+							placeholder="dd/mm/yyyy" /> <form:errors
+							style="color: red;font-style: italic;" path="sdate" /></td>
 				</tr>
 				<tr>
 					<td>
@@ -348,17 +319,18 @@
 						</h3></td>
 					<td><div class="input-append bootstrap-timepicker">
 							<form:input path="endTime" type="text" name="endTime"
-								id="endTime" placeholder="HH:MM"/>
+								id="endTime" placeholder="HH:MM" />
 							<span class="add-on"><i class="icon-time"></i></span>
-						</div>
-						<form:errors style="color: red;font-style: italic;" path="endTime"/><span id="timeerror" style="color: red"></span></td>
+						</div> <form:errors style="color: red;font-style: italic;"
+							path="endTime" /><span id="timeerror" style="color: red"></span></td>
 				</tr>
 
 				<tr>
 					<td><label>Select Technology</label></td>
 					<td><form:select path="Technology" id="Technology"
 							onChange="callTechAjax();">
-							<option value="" id="defaultechnology">--Select Technology</option>
+							<option value="" id="defaultechnology">--Select
+								Technology</option>
 							<form:options items="${technologies}" />
 						</form:select> <form:errors style="color: red;font-style: italic;"
 							path="Technology" /></td>
@@ -391,8 +363,9 @@
 
 
 				<tr>
-					<td colspan="2"><input type="button" name="addsession" id="addsession"
-						value="AddSession" align="center" onclick="checktime()"/></td>
+					<td colspan="2"><input type="button" name="addsession"
+						id="addsession" value="AddSession" align="center"
+						onclick="checktime()" /></td>
 				</tr>
 				<tr>
 					<td><form:hidden path="trid"></form:hidden></td>

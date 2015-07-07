@@ -25,8 +25,21 @@ $(document).ready(function(){
 			}
 		else if(id=='secquestionclick')
 			{
-			
-			$('<select><option value="'+currval+'" class="hlite"></option></select>').appendTo(dataset);
+			$('<div id="secquesdiv" name="'+newid+'" id="'+newid+'" class="hlite""></div>').appendTo(dataset);
+			$.ajax({
+				url : 'http://localhost:8080/FeedBackAutomation/registration/getSecQuestions',
+				method : 'GET',
+				datatype : "json",
+				contentType : 'application/json',
+				success : function(data) {
+					processData(data);
+				},
+				error : function() {
+					alert('error')
+				}
+
+			});
+
 			}
 		
 		$(this).css("display", "none");
@@ -51,6 +64,7 @@ $(document).ready(function(){
 });
 function ajaxCall(empid,sid,newval,einput,dataset,elink)
 {
+	
 	$.ajax({
 		url : '../Trainee/updateUserInfo',
 		method : 'GET',
@@ -86,4 +100,18 @@ function ajaxCall(empid,sid,newval,einput,dataset,elink)
 		}
 
 	});
+	}
+function processData(data)
+{
+	alert('in processData');
+	var dropdown="<select onchange='callSecAjax();' name='Technology' id='Technology'> <option id='defaultechnology' value=''>--SelectTechnology</option>";
+	
+	for (var i = 0; i < data.length; i++) {
+
+		dropdown+="<option value='"+data[i]+"'>"+data[i]+"java</option>";
+	}
+	dropdown+="</select>";
+	alert('dropdown');
+	document.getElementById('secquesdiv').innerHTML=dropdown;
+	
 	}
