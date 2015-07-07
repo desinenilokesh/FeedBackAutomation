@@ -1,0 +1,67 @@
+
+
+.spotlightmenu{
+width: 40%;
+height:175%;
+overflow:hidden;
+margin-top: 10%;
+margin-bottom: 10%;
+background-color: #D6FFAD;
+
+
+}
+
+.spotlightmenu tr{
+margin-top:5%;
+margin-bottom:5%;
+margin-left:10%;
+margin-right:10%;
+padding-bottom:5%;
+padding-top:5%;
+padding-left:5%;
+padding-right:5%;
+font: bold 14px Verdana; /* font style and size */
+list-style-type: none;
+text-align: center; /* "left", "center", or "right" align menu */
+}
+
+.spotlightmenu td{
+display: inline-block;
+position:relative;
+padding: 5px;
+margin: 0;
+margin-right: 5px; /* right margin between menu items */
+}
+
+
+.spotlightmenu td a{
+display:inline-block;
+padding: 5px;
+min-width:50px; /* horizontal diameter of spotlight */
+height:50px; /* vertical diameter of spotlight */
+text-decoration: none;
+color: black;
+margin: 0 auto;
+overflow:hidden;
+-moz-transition: all 0.5s ease-in-out; /* CSS3 transition to animate all A properties */
+-webkit-transition: all 0.3s ease-in-out;
+-o-transition: all 0.3s ease-in-out;
+-moz-transition: all 0.3s ease-in-out;
+-ms-transition: all 0.3s ease-in-out;
+transition: all 0.3s ease-in-out;
+}
+
+.spotlightmenu td:hover a{
+color: white;
+background: #a71b15; /* background color of spotlight */
+-webkit-border-radius: 50%; /* large radius to create circular borders */
+-moz-border-radius: 50%;
+border-radius: 50%;
+}
+
+.spotlightmenu td a span{
+position:relative;
+top:35%; /* move text down so it appears centered within menu item */
+}
+
+

@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+
+<hibernate-configuration>
+	<session-factory>
+		<mapping class="com.spring.project.feedback.model.Employee" />
+		<mapping class="com.spring.project.feedback.model.Emp" />
+		<mapping class="com.spring.project.feedback.model.SecurityQuestions" />
+		<mapping class="com.spring.project.feedback.model.UserSecAnswers" />
+		<mapping class="com.spring.project.feedback.model.SessionTopics" />
+		<mapping class="com.spring.project.feedback.model.Sessions" />
+		<mapping class="com.spring.project.feedback.model.Trainer"  />
+		<mapping class="com.spring.project.feedback.model.TrainingPlan" />
+				<mapping class="com.spring.project.feedback.model.SessionDetails" />
+			
+
+	</session-factory>
+
+</hibernate-configuration>
